@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 import sys
 from optparse import OptionParser
-from association_analysis.input_tools import dataFromFile
-from association_analysis.output_tools import printResults
-from association_analysis import apriori, fp_growth
-from association_analysis.data_process_tools import getRetRulesbyRetItems
+from input_tools import dataFromFile
+from output_tools import printResults
+import apriori, fp_growth
+from data_process_tools import getRetRulesbyRetItems
 
 if __name__ == "__main__":
 
