@@ -25,7 +25,7 @@ def getRetRulesbyRetItems(RetItems, minConfidence):
     for ret in RetItems:
         item = ret[0]
         support = ret[1]
-        item_supports[item] = support
+        item_supports[frozenset(item)] = support
 
     for ret in RetItems:
         item = ret[0]
@@ -34,7 +34,7 @@ def getRetRulesbyRetItems(RetItems, minConfidence):
         for element in _subsets:
             remain = set(item).difference(element)
             if len(remain) > 0:
-                confidence = item_supports[item] / item_supports[tuple(element)]
+                confidence = item_supports[frozenset(item)] / item_supports[element]
                 if confidence >= minConfidence:
                     toRetRules.append(((tuple(element), tuple(remain)), confidence))
     return toRetRules

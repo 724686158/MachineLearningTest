@@ -200,7 +200,6 @@ def conditional_tree_from_paths(paths):
         count = path[-1].count
         for node in reversed(path[:-1]):
             node._count += count
-
     return tree
 
 
@@ -304,7 +303,7 @@ class FPNode(object):
         return tuple(self._children.itervalues())
 
     def inspect(self, depth=0):
-        print ('  ' * depth) + repr(self)
+        print('  ' * depth) + repr(self)
         for child in self.children:
             child.inspect(depth + 1)
 
