@@ -1,17 +1,23 @@
-Python Implementation of Apriori Algorithm 
+Apriori Algorithm and FP-Growth Algorithm
 ==========================================
+Implemented by python 3.7 
 
-[![Build Status](https://travis-ci.org/asaini/Apriori.svg?branch=master)](https://travis-ci.org/asaini/Apriori)
+Without unofficial module requirements
 
-The code attempts to implement the following paper:
-
-> *Agrawal, Rakesh, and Ramakrishnan Srikant. "Fast algorithms for mining association rules." Proc. 20th int. conf. very large data bases, VLDB. Vol. 1215. 1994.*
+code from
+https://github.com/asaini/Apriori
+https://github.com/evandempsey/fp-growth
 
 List of files
 -------------
 1. apriori.py
-2. INTEGRATED-DATASET.csv
-3. README(this file)
+2. fp_growth.py
+3. tesco.csv
+4. README(this file)
+5. data_process_tools.py
+6. input_tools.py
+7. out_tools.py
+8. INTEGRATED-DATASET.csv
 
 The dataset is a copy of the “Online directory of certified businesses with a detailed profile” file from the Small Business Services (SBS) 
 dataset in the `NYC Open Data Sets <http://nycopendata.socrata.com/>`_
@@ -20,20 +26,28 @@ Usage
 -----
 To run the program with dataset provided and default values for *minSupport* = 0.15 and *minConfidence* = 0.6
 
-    python apriori.py -f INTEGRATED-DATASET.csv
+    python association_analysis.py -m apriori -f INTEGRATED-DATASET.csv
+
+    python association_analysis.py -m fp-growth -f INTEGRATED-DATASET.csv
+
 
 To run program with dataset  
 
-    python apriori.py -f INTEGRATED-DATASET.csv -s 0.17 -c 0.68
+     python association_analysis.py -m apriori -f INTEGRATED-DATASET.csv -s 0.17 -c 0.68
 
-Best results are obtained for the following values of support and confidence:  
+     python association_analysis.py -m fp-growth -f INTEGRATED-DATASET.csv -s 0.17 -c 0.68
 
-Support     : Between 0.1 and 0.2  
+data structure
+-------
+input file:  *.csv
 
-Confidence  : Between 0.5 and 0.7 
+output data: items, rules
+     
+     items : [(item, support)]
+     
+     roules : [(((element), (remain)), confidence)]
 
 License
 -------
 MIT-License
 
--------
