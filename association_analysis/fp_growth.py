@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from collections import defaultdict, namedtuple
-from 关联分析.data_process_tools import getItemSetTransactionList
+from association_analysis.data_process_tools import getItemSetTransactionList
 
 
 def find_frequent_itemsets(data_iter, minimum_support_rat, include_support=False):

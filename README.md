@@ -1,9 +1,7 @@
-机器学习算法
+Machine Learning Algorithms
 ==========================================
 
-代码收集自Github开源项目
-
-按照算法分类，进入对应目录，查看具体描述
+Sort by method type, enter the corresponding directory, view the specific description
 
 License
 -------

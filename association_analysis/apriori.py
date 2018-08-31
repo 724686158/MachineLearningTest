@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from collections import defaultdict
-from 关联分析.data_process_tools import getItemSetTransactionList
+from association_analysis.data_process_tools import getItemSetTransactionList
 
 
 def returnItemsWithMinSupport(itemSet, transactionList, minSupport, freqSet):
