@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from collections import defaultdict, namedtuple
-from data_process_tools import getItemSetTransactionList
+from 关联分析.data_process_tools import getItemSetTransactionList
 
 
 def find_frequent_itemsets(data_iter, minimum_support_rat, include_support=False):
@@ -49,7 +49,6 @@ def find_frequent_itemsets(data_iter, minimum_support_rat, include_support=False
         for item, nodes in tree.items():
             support = sum(n.count for n in nodes)
             if support >= minimum_support and item not in suffix:
-                # New winner!
                 found_set = [item] + suffix
                 yield (tuple(found_set), float(support)/size) if include_support else found_set
                 # Build a conditional tree and recursively search for frequent

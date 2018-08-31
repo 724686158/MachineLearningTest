@@ -1,11 +1,10 @@
 # -*- coding: utf-8 -*-
 import sys
 from optparse import OptionParser
-from input_tools import dataFromFile
-from output_tools import printResults
-import apriori
-import fp_growth
-from data_process_tools import getRetRulesbyRetItems
+from 关联分析.input_tools import dataFromFile
+from 关联分析.output_tools import printResults
+from 关联分析 import apriori, fp_growth
+from 关联分析.data_process_tools import getRetRulesbyRetItems
 
 if __name__ == "__main__":
 
