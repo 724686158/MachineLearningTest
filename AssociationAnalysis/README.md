@@ -5,7 +5,9 @@ Implemented by python 3.7
 Without unofficial module requirements
 
 code from
+------------
 https://github.com/asaini/Apriori
+
 https://github.com/evandempsey/fp-growth
 
 List of files
