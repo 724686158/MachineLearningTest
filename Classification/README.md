@@ -18,16 +18,19 @@ List of files
 1. simsun.ttc
 2. requirements
 3. README(this file)
-4. datingTestSet.txt
+4. DataSet/datingTestSet.txt
+4. DataSet/datingTestSet.csv
+4. DataSet/TestSet.txt
+4. DataSet/TestSet.csv
 
 Usage
 -----
     
-    python knn.py
+    Classification mengzicheng$ python classification.py -m knn -f DataSet/datingTestSet.csv -c DataSet/TestSet.csv
     
 data structure
 -------
-input file:  *.txt
+input file:  *.csv
 
 output data: SciView
 
