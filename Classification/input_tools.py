@@ -30,7 +30,7 @@ def txt2matrix(filename):
     #得到文件行数
     numberOfLines = len(arrayOLines)
     #返回的NumPy矩阵,解析完成的数据:numberOfLines行,3列
-    returnMat = numpy.zeros((numberOfLines,3))
+    returnMat = numpy.zeros((numberOfLines,6))
     #返回的分类标签向量
     classLabelVector = []
     #行的索引值
@@ -49,6 +49,8 @@ def txt2matrix(filename):
             classLabelVector.append(2)
         elif listFromLine[-1] == 'largeDoses':
             classLabelVector.append(3)
+        else :
+            classLabelVector.append(listFromLine[-1])
         index += 1
     return returnMat, classLabelVector
 
@@ -69,13 +71,13 @@ def csv2matrix(filename):
     file_iter = open(filename, 'rU')
     arrayOLines = file_iter.readlines()
     numberOfLines = len(arrayOLines)
-    returnMat = numpy.zeros((numberOfLines, 3))
+    returnMat = numpy.zeros((numberOfLines, 6))
     classLabelVector = []
     index = 0
     for line in arrayOLines:
         line = line.strip()
         listFromLine = line.split(',')
-        returnMat[index, :] = listFromLine[0:3]
+        returnMat[index, :] = listFromLine[0:6]
         # 根据文本中标记的喜欢的程度进行分类,1代表不喜欢,2代表魅力一般,3代表极具魅力
         if listFromLine[-1] == 'didntLike':
             classLabelVector.append(1)
@@ -83,5 +85,7 @@ def csv2matrix(filename):
             classLabelVector.append(2)
         elif listFromLine[-1] == 'largeDoses':
             classLabelVector.append(3)
+        else :
+            classLabelVector.append(int(listFromLine[-1]))
         index += 1
     return returnMat, classLabelVector

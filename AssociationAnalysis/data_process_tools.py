@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 from itertools import chain, combinations
 
-
 def getItemSetTransactionList(data_iterator):
     transactionList = list()
     itemSet = set()

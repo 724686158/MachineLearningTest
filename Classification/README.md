@@ -26,7 +26,7 @@ List of files
 Usage
 -----
     
-    Classification mengzicheng$ python classification.py -m knn -f DataSet/datingTestSet.csv -c DataSet/TestSet.csv
+    python classification.py -m knn -f DataSet/datingTestSet.csv -c DataSet/TestSet.csv
     
 data structure
 -------

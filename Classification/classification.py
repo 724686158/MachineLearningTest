@@ -22,10 +22,10 @@ if __name__ == "__main__":
     optparser.add_option('-k', '--Knumber',
                          dest='knumber',
                          help='number of k',
-                         default=4)
+                         default=10)
 
     (options, args) = optparser.parse_args()
 
     if options.method == 'knn':
-        knn.showFileData(options.input)
-        retItems = knn.autoClass(options.input, options.classfile, options.knumber)
+        # knn.showFileData(options.input)
+        knn.autoTest(options.input, options.classfile, options.knumber, "OUTPUT.csv")

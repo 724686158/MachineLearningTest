@@ -190,17 +190,19 @@ def datingClassTest():
     print("错误率:%f%%" % (errorCount / float(numTestVecs) * 100))
 
 
-def autoTest(filename, testfilename, k):
+def autoTest(filename, testfilename, k, outputfile):
     # 将返回的特征矩阵和分类向量分别存储到datingDataMat和datingLabels中
-    datingDataMat, datingLabels = txt2matrix(filename)
+    datingDataMat, datingLabels = csv2matrix(filename)
     # 数据归一化,返回归一化后的矩阵,数据范围,数据最小值
     normMat, ranges, minVals = autoNorm(datingDataMat)
 
-    testdatingDataMat, testdatingLabels = txt2matrix(testfilename)
+    testdatingDataMat, testdatingLabels = csv2matrix(testfilename)
 
     testnormMat, testranges, testminVals = autoNorm(testdatingDataMat)
 
     test_m = testnormMat.shape[0]
+
+    fo = open(outputfile, "w")
 
     # 分类错误计数
     errorCount = 0.0
@@ -208,13 +210,15 @@ def autoTest(filename, testfilename, k):
     for i in range(test_m):
         # 前numTestVecs个数据作为测试集,后m-numTestVecs个数据作为训练集
         classifierResult = KNN(testnormMat[i], normMat, datingLabels,k)
-        print("分类结果:%d\t真实类别:%d" % (classifierResult, testdatingLabels[i]))
+        csvLine = "{},{}".format(testdatingDataMat[i], classifierResult)
+        fo.write(csvLine + '\n')
+        print("数据样例%d:%s\t分类结果:%d \t真实结果:%d" % (i, testdatingDataMat[i], classifierResult, testdatingLabels[i]))
         if classifierResult != testdatingLabels[i]:
             errorCount += 1.0
     print("错误率:%f%%" % (errorCount / float(test_m) * 100))
 
 
-def autoClass(filename, classfilename, k):
+def autoClass(filename, classfilename, k, outputfile):
     # 将返回的特征矩阵和分类向量分别存储到datingDataMat和datingLabels中
     datingDataMat, datingLabels = csv2matrix(filename)
     # 数据归一化,返回归一化后的矩阵,数据范围,数据最小值
@@ -225,10 +229,11 @@ def autoClass(filename, classfilename, k):
     testnormMat, testranges, testminVals = autoNorm(testdatingDataMat)
 
     test_m = testnormMat.shape[0]
-
+    outputfile
     for i in range(test_m):
         # 前numTestVecs个数据作为测试集,后m-numTestVecs个数据作为训练集
         classifierResult = KNN(testnormMat[i], normMat, datingLabels,k)
+
         print("数据样例%d:%s\t分类结果:%d" % (i, testdatingDataMat[i], classifierResult))
 
 

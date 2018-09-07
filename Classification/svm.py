@@ -27,7 +27,7 @@ Parameters:
     dataMat - 数据矩阵
     labelMat - 数据标签
 Returns:
-    无sc
+    无
 """
 def showDataSet(dataMat, labelMat):
     data_plus = []                                  #正样本
